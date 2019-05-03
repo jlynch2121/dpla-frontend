@@ -1,3 +1,4 @@
 export const API_ENDPOINT = "/api/dpla/items";
+export const MORE_ENDPOINT = "/more";
 export const THUMBNAIL_ENDPOINT = "/thumb";
 export const LOCAL_ABOUT_ENDPOINT = "/api/dpla/local_about";

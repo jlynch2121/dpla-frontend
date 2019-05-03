@@ -1,3 +1,5 @@
+const sqlite3 = require("sqlite3");
+
 const express = require("express");
 const next = require("next");
 const bodyParser = require("body-parser");
@@ -13,6 +15,13 @@ const mustFork = process.env.MUST_FORK === "true" || production;
 const PORT = process.env.PORT || 3000;
 
 if (require.main === module) {
+  let db = new sqlite3.Database("data.sqlite", sqlite3.OPEN_READONLY, err => {
+    if (err) {
+      return console.error(err.message);
+    }
+    console.log("Connected to the SQLite database.");
+  });
+
   process.on("uncaughtException", err => {
     console.error("Uncaught Exception: ", err.stack);
     process.exit(1);
@@ -47,6 +56,35 @@ if (require.main === module) {
 
       server.get("/healthcheck", (req, res) => {
         res.send("OK");
+      });
+
+      server.get("/more/:itemId", (req, res) => {
+        console.log("Getting more for " + req.params.itemId);
+
+        const query =
+          "select t.id, d.title from terms t " +
+          "inner join documents d on t.id = d.id " +
+          "inner join terms s on t.term = s.term " +
+          "where s.id = ? " +
+          //"and t.id != s.id " +
+          "group by t.id " +
+          "having count(t.id) > 1 " +
+          "order by count(t.id) desc " +
+          "limit 5";
+
+        db.all(query, [req.params.itemId], (err, result) => {
+          if (err) {
+            throw err;
+          }
+          const filtered = result
+            ? result.filter(item => item.id !== req.params.itemId).map(item =>
+                Object.assign({}, item, {
+                  thumbnailUrl: "//dp.la/thumb/" + item.id
+                })
+              )
+            : [];
+          res.send(JSON.stringify(filtered));
+        });
       });
 
       server.get("/robots.txt", (req, res) => {

@@ -6,9 +6,14 @@ import MainLayout from "components/MainLayout";
 import CiteButton from "components/shared/CiteButton";
 import BreadcrumbsModule from "components/ItemComponents/BreadcrumbsModule";
 import Content from "components/ItemComponents/Content";
+import More from "components/ItemComponents/Content/More";
 import { CheckableLists } from "components/ListComponents/CheckableLists";
 
-import { API_ENDPOINT, THUMBNAIL_ENDPOINT } from "constants/items";
+import {
+  API_ENDPOINT,
+  THUMBNAIL_ENDPOINT,
+  MORE_ENDPOINT
+} from "constants/items";
 
 import {
   getCurrentUrl,
@@ -76,12 +81,13 @@ const ItemDetail = ({
           <CheckableLists itemId={item.id} />
         </div>
       </div>
-
+      <More item={item} />
     </MainLayout>
   );
 };
 
 ItemDetail.getInitialProps = async ({ query, req, res }) => {
+  console.log("getInitialProps");
   const currentFullUrl = getCurrentFullUrl(req);
   const currentUrl = getCurrentUrl(req);
 
@@ -89,6 +95,11 @@ ItemDetail.getInitialProps = async ({ query, req, res }) => {
   try {
     const res = await fetch(`${currentUrl}${API_ENDPOINT}/${query.itemId}`);
     const json = await res.json();
+    console.log("getting more");
+    const moreRes = await fetch(
+      `${currentUrl}${MORE_ENDPOINT}/${query.itemId}`
+    );
+    const moreJson = await moreRes.json();
 
     const doc = json.docs[0];
     const thumbnailUrl = doc.object
@@ -216,7 +227,8 @@ ItemDetail.getInitialProps = async ({ query, req, res }) => {
         partner: doc.provider.name,
         sourceUrl: doc.isShownAt,
         useDefaultImage: !doc.object,
-        edmRights: doc.rights
+        edmRights: doc.rights,
+        more: moreJson
       })
     };
   } catch (error) {
