@@ -25,6 +25,7 @@ const ImageAndCaption = ({ exhibition, route }) =>
               <HeadingRule color="rgba(255,255,255,0.75)" />
             </div>
             <Button
+              id="exploreLink"
               type="primary"
               size="large"
               prefetch

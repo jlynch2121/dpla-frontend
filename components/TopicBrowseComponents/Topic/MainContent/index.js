@@ -6,6 +6,8 @@ import HeadingRule from "shared/HeadingRule";
 import utils from "stylesheets/utils.scss";
 import css from "./MainContent.scss";
 
+import { convertToId } from "lib";
+
 const MainContent = ({ topic }) =>
   <div className={css.wrapper}>
     <div className={`${utils.container} ${css.container} site-max-width`}>
@@ -22,7 +24,10 @@ const MainContent = ({ topic }) =>
               as={`/browse-by-topic/${topic.slug}/${subtopic.slug}`}
               href={`/browse-by-topic/topic/subtopic?subtopic=${subtopic.slug}&topic=${topic.slug}`}
             >
-              <a className={css.subtopicAnchor}>
+              <a
+                className={css.subtopicAnchor}
+                id={convertToId("browse-subtopic-" + subtopic.slug)}
+              >
                 <div
                   className={css.image}
                   aria-hidden="true"

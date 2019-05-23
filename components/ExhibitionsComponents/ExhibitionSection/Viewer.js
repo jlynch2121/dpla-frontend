@@ -18,6 +18,8 @@ import {
 } from "lib";
 import * as gtag from "lib/gtag";
 
+import { convertToId } from "lib";
+
 import { ITEM_TYPES } from "constants/exhibitions";
 import { resourceTypes } from "constants/site";
 
@@ -83,7 +85,10 @@ const ItemLink = ({
       ? route.query.subsection
       : ""}?item=${itemId}`}
   >
-    <a className={[css.itemLink, className].join(" ")}>
+    <a
+      className={[css.itemLink, className].join(" ")}
+      id={convertToId("exhibition-item-" + itemId)}
+    >
       <ItemImage
         type={getFileType(fileType, originalUrl)}
         title="Show item in viewer"

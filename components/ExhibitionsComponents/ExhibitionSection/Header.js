@@ -19,7 +19,10 @@ const Header = ({ title, route }) =>
       href={`/exhibitions/exhibition?exhibition=${route.query.exhibition}`}
       as={`/exhibitions/${route.query.exhibition}`}
     >
-      <a className={`hover-underline ${css.closeExhibition}`}>
+      <a
+        className={`hover-underline ${css.closeExhibition}`}
+        id={"close-exhibition"}
+      >
         <svg
           className={css.closeIcon}
           width="18"

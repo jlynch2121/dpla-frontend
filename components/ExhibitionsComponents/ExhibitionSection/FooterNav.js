@@ -27,6 +27,7 @@ const NavButton = ({ queryParams, route, nextOrPrevious = "next" }) =>
           className={
             nextOrPrevious === "next" ? css.nextButton : css.prevButton
           }
+          id={nextOrPrevious + "-button"}
         >
           {nextOrPrevious === "previous" &&
             <img src={blackChevron} className={css.previousChevron} alt="" />}

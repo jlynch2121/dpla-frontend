@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
+import { convertToId } from "lib";
+
 import css from "./ExhibitionsList.scss";
 
 const Exhibition = ({ exhibition, route }) => {
@@ -19,7 +21,10 @@ const Exhibition = ({ exhibition, route }) => {
             query: route.query
           }}
         >
-          <a className={` ${css.exhibition}`}>
+          <a
+            className={` ${css.exhibition}`}
+            id={convertToId("exhibition-" + exhibition.slug)}
+          >
             {exhibition.new &&
               !featured &&
               <div className={css.newBanner}>

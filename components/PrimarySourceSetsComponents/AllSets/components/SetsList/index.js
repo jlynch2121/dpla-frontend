@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 
-import { extractSourceSetSlug, removeQueryParams } from "lib/";
+import { extractSourceSetSlug, removeQueryParams, convertToId } from "lib";
 import {
   mapTimePeriodNameToSlug,
   mapSubjectNameToSlug
@@ -35,7 +35,10 @@ const SetsList = ({ sets, route }) =>
                 query: removeQueryParams(route.query)
               }}
             >
-              <a aria-hidden>
+              <a
+                aria-hidden
+                id={convertToId("pss-" + extractSourceSetSlug(set["@id"]))}
+              >
                 <img
                   alt=""
                   src={set.repImageUrl || set.thumbnailUrl}

@@ -4,6 +4,8 @@ import Link from "next/link";
 import utils from "stylesheets/utils.scss";
 import css from "./Topics.scss";
 
+import { convertToId } from "lib";
+
 const Topics = ({ topics }) =>
   <div className={`${css.topicsWrapper} ${utils.container}`}>
     <p className={css.topicsIntro}>
@@ -21,7 +23,7 @@ const Topics = ({ topics }) =>
             as={`/browse-by-topic/${topic.slug}`}
             href={`/browse-by-topic/topic?topic=${topic.slug}`}
           >
-            <a className={css.topic}>
+            <a className={css.topic} id={convertToId("topic-" + topic.slug)}>
               {topic.isFeatured && <div className={css.ribbon}>Featured</div>}
               {topic.isNew &&
                 !topic.isFeatured &&

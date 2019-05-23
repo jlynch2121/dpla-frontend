@@ -1,14 +1,14 @@
 import React from "react";
 import Link from "next/link";
 
-import { addCommasToNumber } from "lib";
+import { addCommasToNumber, convertToId } from "lib";
 
 import utils from "stylesheets/utils.scss";
 import css from "./PartnerBrowseContent.scss";
 
 const Partner = ({ name, itemCount, index }) =>
   <Link href={`/search?partner="${name}"`}>
-    <a className={css.partnerLink}>
+    <a className={css.partnerLink} id={convertToId("partner-" + name)}>
       <span className={css.name}>{name}</span>
       <span className={css.itemCount}>
         {addCommasToNumber(itemCount)}
