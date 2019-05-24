@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import Link from "next/link";
 
-import { removeQueryParams, extractSourceId } from "lib";
+import { removeQueryParams, extractSourceId, convertToId } from "lib";
 
 import utils from "stylesheets/utils.scss";
 import css from "./SourceSetSources.scss";
@@ -31,7 +31,7 @@ const SourceSetSources = ({ route, sources }) =>
                 })
               }}
             >
-              <a>
+              <a id={convertToId("source-" + sourceId)}>
                 <div
                   className={`${css.imageWrapper} ${useDefaultImage
                     ? css.defaultImageWrapper

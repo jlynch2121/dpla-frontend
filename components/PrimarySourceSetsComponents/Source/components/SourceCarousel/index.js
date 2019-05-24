@@ -71,6 +71,7 @@ const SourceCarousel = ({ sources, set, currentSourceIdx, route }) =>
               </Link>
             : <button
                 className={`${css.previousItemButton} ${css.disabledNextOrPrevButton}`}
+                id={"previous-button"}
               >
                 <ThickChevron
                   className={`${css.thickChevron} ${css.flippedH}`}
@@ -96,7 +97,10 @@ const SourceCarousel = ({ sources, set, currentSourceIdx, route }) =>
                   })
                 }}
               >
-                <a className={`${css.nextItemButton} hover-underline`}>
+                <a
+                  className={`${css.nextItemButton} hover-underline`}
+                  id={"next-button"}
+                >
                   <span>Next Item</span>
                   <ThickChevron className={css.thickChevron} />
                 </a>
