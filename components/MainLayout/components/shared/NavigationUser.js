@@ -12,38 +12,38 @@ class NavigationUser extends React.Component {
           {!isHome &&
             <li>
               <Link prefetch href="/">
-                <a>
+                <a id={"link-home"}>
                   Home
                 </a>
               </Link>
             </li>}
           <li>
             <Link prefetch href="/browse-by-topic">
-              <a>Browse by Topic</a>
+              <a id={"link-browse-topic"}>Browse by Topic</a>
             </Link>
           </li>
           <li>
             <Link prefetch href="/browse-by-partner">
-              <a>Browse by Partner</a>
+              <a id={"link-browse-partner"}>Browse by Partner</a>
             </Link>
           </li>
           <li>
             <Link prefetch href="/exhibitions">
-              <a>
+              <a id={"link-exhibitions"}>
                 Exhibitions
               </a>
             </Link>
           </li>
           <li>
             <Link prefetch href="/primary-source-sets">
-              <a>
+              <a id={"link-pss"}>
                 Primary Source Sets
               </a>
             </Link>
           </li>
           <li>
             <Link prefetch href="/lists">
-              <a>
+              <a id={"link-lists"}>
                 My Lists
               </a>
             </Link>
@@ -53,12 +53,12 @@ class NavigationUser extends React.Component {
         <ul className={`${css.links} ${css.secondaryLinks}`}>
           <li>
             <Link prefetch as="/about" href="/about?section=about-us">
-              <a>About DPLA</a>
+              <a id={"link-about"}>About DPLA</a>
             </Link>
           </li>
           <li>
             <Link prefetch href="/news">
-              <a>News</a>
+              <a id={"link-news"}>News</a>
             </Link>
           </li>
         </ul>
@@ -66,7 +66,7 @@ class NavigationUser extends React.Component {
         <ul className={`${css.links} ${css.tertiaryLinks}`}>
           <li>
             <Link href={PRO_BASE_URL}>
-              <a>DPLA Pro</a>
+              <a id={"link-pro"}>DPLA Pro</a>
             </Link>
           </li>
         </ul>

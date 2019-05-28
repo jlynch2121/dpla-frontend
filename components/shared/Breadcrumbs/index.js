@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import css from "./Breadcrumbs.scss";
 
 const Breadcrumbs = ({ breadcrumbs }) =>
-  <div className={css.breadcrumbs}>
+  <div className={css.breadcrumbs} id={"breadcrumbs"}>
     {breadcrumbs.map((breadcrumb, idx) => {
       if (idx < breadcrumbs.length - 1) {
         return (
