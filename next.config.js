@@ -58,6 +58,11 @@ module.exports = withBundleAnalyzer(
         });
 
         return config;
+      },
+      exportPathMap: function() {
+        return {
+          "/": { page: "/static" }
+        };
       }
     })
   )
