@@ -57,6 +57,19 @@ const LOCALS = {
     hasAbout: true,
     hasTerms: false,
     hasContact: false
+  },
+  cqa: {
+    theme: "tennessee", // placeholder theme for CQA, should have its own
+    provider: "",
+    name: "Gerneric DPLA CQA",
+    favicon: "favicon.png",
+    logo: "logo.png",
+    description: "CQA",
+    locationFacet: "",
+    subjectFacet: "",
+    hasAbout: false,
+    hasTerms: false,
+    hasContact: false
   }
 };
 
