@@ -61,10 +61,10 @@ const LOCALS = {
   cqa: {
     theme: "cqa",
     provider: "*",
-    name: "Gerneric DPLA CQA",
+    name: "DPLA Content QA Interface",
     favicon: "favicon.png",
     logo: "logo.png",
-    description: "CQA",
+    description: "",
     locationFacet: "*",
     subjectFacet: "*",
     hasAbout: false,
