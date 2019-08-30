@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 3000;
 if (require.main === module) {
   process.on("uncaughtException", err => {
     console.error("Uncaught Exception: ", err.stack);
+    console.error("Runtime env: ", process.env);
     process.exit(1);
   });
 
