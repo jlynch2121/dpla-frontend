@@ -59,7 +59,7 @@ const LOCALS = {
     hasContact: false
   },
   cqa: {
-    theme: "tennessee", // placeholder theme for CQA, should have its own
+    theme: "cqa",
     provider: "",
     name: "Gerneric DPLA CQA",
     favicon: "favicon.png",
