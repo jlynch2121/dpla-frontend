@@ -71,6 +71,10 @@ module.exports.static = (app, server) => {
     app.render(req, res, "/browse-by-partner", req.query);
   });
 
+  server.get("/browse-by-place", (req, res) => {
+    app.render(req, res, "/local/browse-by-place", req.query);
+  });
+
   // item routes
   server.get("/item/:itemId", (req, res) => {
     const actualPage = "/item";
