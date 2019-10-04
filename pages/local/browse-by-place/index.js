@@ -34,7 +34,8 @@ PlaceBrowse.getInitialProps = ({ query, req }) => {
     ({
       image: PLACES[i].image,
       name: PLACES[i].city,
-      searchTerm: PLACES[i].searchTerm
+      searchTerm: PLACES[i].searchTerm,
+      description: PLACES[i].description
     })
   );
   return { places };

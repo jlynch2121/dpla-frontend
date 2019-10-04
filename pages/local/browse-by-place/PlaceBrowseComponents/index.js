@@ -6,11 +6,12 @@ import { addCommasToNumber } from "lib";
 import utils from "stylesheets/utils.scss";
 import css from "./PlaceBrowseContent.scss";
 
-const Place = ({ image, name, searchTerm, index }) =>
+const Place = ({ image, name, searchTerm, index, description }) =>
   <Link href={`/search?location=${searchTerm}`}>
     <a className={css.placeLink}>
       <img src={`${image}`}/>
       <span className={css.name}>{name}</span>
+      <p>{description}</p>
     </a>
   </Link>;
 
@@ -22,6 +23,7 @@ const mapPlacesToComponents = places =>
         name={place.name}
         searchTerm={place.searchTerm}
         index={index}
+        description={place.description}
       />
     </li>
   );
