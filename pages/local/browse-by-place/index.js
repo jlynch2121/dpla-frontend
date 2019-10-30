@@ -32,7 +32,7 @@ PlaceBrowse.getInitialProps = ({ query, req }) => {
 
   const places = PLACES.map((place, i) =>
     ({
-      image: PLACES[i].image,
+      imageId: PLACES[i].imageId,
       name: PLACES[i].city,
       searchTerm: PLACES[i].searchTerm,
       description: PLACES[i].description
