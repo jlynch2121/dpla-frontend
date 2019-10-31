@@ -1,12 +1,9 @@
 import React from "react";
-import fetch from "isomorphic-fetch";
 
 import MainLayout from "components/MainLayout";
 import FeatureHeader from "shared/FeatureHeader";
 import PlaceBrowseContent from "pages/local/browse-by-place/PlaceBrowseComponents";
 
-import { getCurrentUrl } from "lib";
-import { API_ENDPOINT } from "constants/items";
 import { TITLE, DESCRIPTION } from "constants/browse-by-place";
 import { LOCALS } from "constants/local";
 import { SITE_ENV, LOCAL_ID } from "constants/env";

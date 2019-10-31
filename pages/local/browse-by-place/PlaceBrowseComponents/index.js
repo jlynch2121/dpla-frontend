@@ -1,19 +1,15 @@
 import React from "react";
 import Link from "next/link";
 
-import { addCommasToNumber } from "lib";
-
 import utils from "stylesheets/utils.scss";
 import css from "./PlaceBrowseContent.scss";
 
-// new place should instantiate separate components for
-// thumbnail, link title, and description
 const Place = ({ imageId, name, searchTerm, index, description }) =>
   <div>
     <div className={css.imageWrapper}>
       <Link href={`/search?location=${searchTerm}`}>
         <a
-          className={`${css.listItemImageLink} internalItemLink`}
+          className={`${css.locationImageLink} internalItemLink`}
           title={name}
           aria-hidden
         >
@@ -33,7 +29,6 @@ const Place = ({ imageId, name, searchTerm, index, description }) =>
       <p class={css.descriptionText}>{description}</p>
     </div>
   </div>;
-
 
 const mapPlacesToComponents = places =>
   places.map((place, index) =>
