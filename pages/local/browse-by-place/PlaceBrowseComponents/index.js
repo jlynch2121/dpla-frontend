@@ -20,13 +20,13 @@ const Place = ({ imageId, name, searchTerm, index, description }) =>
         </a>
       </Link>
     </div>
-    <div class={css.textWrapper}>
+    <div className={css.textWrapper}>
       <Link href={`/search?location=${searchTerm}`}>
         <a className={css.placeLink}>
           <span className={css.name}>{name}</span>
         </a>
       </Link>
-      <p class={css.descriptionText}>{description}</p>
+      <p className={css.descriptionText}>{description}</p>
     </div>
   </div>;
 
