@@ -28,6 +28,7 @@ const LOCALS = {
     hasTerms: false,
     hasContact: false,
     hasBrowseByPartner: true,
+    hasBrowseByPlace: true,
     routes: {
       "/about/governance": {
         parentDir: "/about",

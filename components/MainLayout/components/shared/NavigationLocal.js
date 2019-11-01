@@ -106,6 +106,13 @@ class NavigationLocal extends Component {
               </Link>
             </li>
           )}
+          {LOCALS[LOCAL_ID].hasBrowseByPlace && (
+            <li>
+              <Link prefetch href="/browse-by-place">
+                <a>Browse by Place</a>
+              </Link>
+            </li>
+          )}
           {arbitraryHtml}
           {contactHtml && contactHtml}
           {LOCALS[LOCAL_ID].hasTerms && (
