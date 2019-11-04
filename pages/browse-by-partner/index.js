@@ -13,7 +13,7 @@ import { SITE_ENV, LOCAL_ID } from "constants/env";
 
 import css from "components/PartnerBrowseComponents/PartnerBrowseContent.scss";
 
-const PartnerBrowse = ({ partners, url }) =>
+const PartnerBrowse = ({ partners, url, googleMap }) =>
   <div>
     <MainLayout route={url} pageTitle={TITLE}>
       <div id="main" role="main">
@@ -22,7 +22,7 @@ const PartnerBrowse = ({ partners, url }) =>
           title={TITLE}
           description={DESCRIPTION}
         />
-        <PartnerBrowseContent partners={partners} />
+        <PartnerBrowseContent partners={partners} googleMap={googleMap} />
       </div>
     </MainLayout>
   </div>;
@@ -32,6 +32,7 @@ PartnerBrowse.getInitialProps = async ({ query, req }) => {
   let apiQuery = "";
   let facetName = "";
   let linkParam = "";
+  let googleMap = null;
 
   if (SITE_ENV === "local") {
     apiQuery = `${currentUrl}${API_ENDPOINT}?facets=dataProvider&provider.name=${LOCALS[
@@ -39,6 +40,11 @@ PartnerBrowse.getInitialProps = async ({ query, req }) => {
     ].provider}`;
     facetName = "dataProvider";
     linkParam = "provider";
+
+    if (LOCALS[LOCAL_ID].hasMap){
+      googleMap = LOCALS[LOCAL_ID].googleMapSpecs;
+    }
+
   } else {
     apiQuery = `${currentUrl}${API_ENDPOINT}?facets=provider.name`;
     facetName = "provider.name";
@@ -52,7 +58,7 @@ PartnerBrowse.getInitialProps = async ({ query, req }) => {
     facet: linkParam,
     itemCount: partner.count
   }));
-  return { partners };
+  return { partners, googleMap };
 };
 
 export default PartnerBrowse;

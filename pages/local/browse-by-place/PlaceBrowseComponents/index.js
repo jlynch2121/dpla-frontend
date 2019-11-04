@@ -46,15 +46,6 @@ const mapPlacesToComponents = places =>
     </li>
   );
 
-const PlaceBrowseMap = () =>
-  <div className={`${css.placeBrowseMap}`}>
-    <iframe
-      src="https://www.google.com/maps/d/embed?mid=1LaS0G_rC1Ak87jq73_MAB5dmBIPzMuYS"
-      width="640"
-      height="480">
-    </iframe>
-  </div>;
-
 const PlaceBrowseContent = ({ route, places }) =>
   <div className={`${utils.container} ${css.placeBrowse}`}>
     <div className={`row`}>

@@ -28,6 +28,12 @@ const LOCALS = {
     hasTerms: false,
     hasContact: false,
     hasBrowseByPartner: true,
+    hasMap: true,
+    googleMapSpecs: {
+      src: "https://www.google.com/maps/d/embed?mid=1LaS0G_rC1Ak87jq73_MAB5dmBIPzMuYS",
+      width: "640",
+      height: "480"
+    },
     hasBrowseByPlace: true,
     routes: {
       "/about/governance": {
