@@ -18,11 +18,12 @@ const NestedSidebarLinks = ({ activePage, topLevelItem, items }) => {
 
   return(
     <div>
+      {(topLevelItem != undefined) &&
       <SidebarLink
         route={topLevelItem.route}
         isActive={topLevelItem.isActive}
         title={topLevelItem.title}
-      />
+      />}
       <ul>
         {items.
           map(item => {
@@ -73,9 +74,12 @@ const Sidebar = ({ className, items, activePage }) => {
       rendered a bit differently. Also, remove it from the items object
       so that the link does not get rendered twice
     */
+
     const topLevelPage = items.filter(item => {
       return item.isTopLevel;
     })[0];
+
+    console.log(topLevelPage);
 
     items = items.filter(item => {
       return !item.isTopLevel;
