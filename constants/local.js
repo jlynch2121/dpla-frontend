@@ -27,14 +27,13 @@ const LOCALS = {
     hasAbout: true,
     hasTerms: false,
     hasContact: false,
-    hasBrowseByPartner: true,
+    hasBrowse: true,
     hasMap: true,
     googleMapSpecs: {
       src: "https://www.google.com/maps/d/embed?mid=1LaS0G_rC1Ak87jq73_MAB5dmBIPzMuYS",
       width: "1000",
       height: "750"
     },
-    hasBrowseByPlace: true,
     routes: {
       "/about/governance": {
         parentDir: "/about",

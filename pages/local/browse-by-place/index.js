@@ -10,20 +10,29 @@ import { SITE_ENV, LOCAL_ID } from "constants/env";
 import { PLACES } from "constants/il-places";
 
 import css from "pages/local/browse-by-place/PlaceBrowseComponents/PlaceBrowseContent.scss";
+import contentCss from "stylesheets/content-pages.scss";
+import utils from "stylesheets/utils.scss";
 
 const PlaceBrowse = ({ places, url }) =>
-  <div>
-    <MainLayout route={url} pageTitle={TITLE}>
-      <div id="main" role="main">
-        <FeatureHeader
-          titleClassName={css.featureTitle}
-          title={TITLE}
-          description={DESCRIPTION}
-        />
-        <PlaceBrowseContent places={places} />
+  <MainLayout route={url} pageTitle={TITLE}>
+    <FeatureHeader
+      titleClassName={css.featureTitle}
+      title={TITLE}
+      description={DESCRIPTION}
+    />
+    <div className={`${utils.container} ${contentCss.sidebarAndContentWrapper}`}>
+      <div className="row">
+        <div className="col-xs-12 col-md-4">
+          <p>Menu goes here</p>
+        </div>
+        <div className="col-xs-12 col-md-7">
+          <div id="main" role="main">
+            <PlaceBrowseContent places={places} />
+          </div>
+        </div>
       </div>
-    </MainLayout>
-  </div>;
+    </div>
+  </MainLayout>;
 
 PlaceBrowse.getInitialProps = ({ query, req }) => {
 

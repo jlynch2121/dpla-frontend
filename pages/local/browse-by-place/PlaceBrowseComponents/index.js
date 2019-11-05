@@ -33,7 +33,7 @@ const Place = ({ imageId, name, searchTerm, index, description }) =>
 const mapPlacesToComponents = places =>
   places.map((place, index) =>
     <li
-      key={`p_${place}`}
+      key={`pl_${index}`}
       className={css.place}
     >
       <Place
@@ -47,12 +47,10 @@ const mapPlacesToComponents = places =>
   );
 
 const PlaceBrowseContent = ({ route, places }) =>
-  <div className={`${utils.container} ${css.placeBrowse}`}>
-    <div className={`row`}>
-      <ul className={`${css.places} col-xs-12`}>
-        {mapPlacesToComponents(places)}
-      </ul>
-    </div>
+  <div className={css.placeBrowse}>
+    <ul>
+      {mapPlacesToComponents(places)}
+    </ul>
   </div>;
 
 export default PlaceBrowseContent;

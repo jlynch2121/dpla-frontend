@@ -99,17 +99,10 @@ class NavigationLocal extends Component {
               </Link>
             </li>
           )}
-          {LOCALS[LOCAL_ID].hasBrowseByPartner && (
+          {LOCALS[LOCAL_ID].hasBrowse && (
             <li>
-              <Link prefetch href="/browse-by-partner">
-                <a>Browse by Partner</a>
-              </Link>
-            </li>
-          )}
-          {LOCALS[LOCAL_ID].hasBrowseByPlace && (
-            <li>
-              <Link prefetch href="/browse-by-place">
-                <a>Browse by Place</a>
+              <Link prefetch href="/browse-by-contributor">
+                <a>Browse</a>
               </Link>
             </li>
           )}

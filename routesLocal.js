@@ -67,8 +67,8 @@ module.exports.static = (app, server) => {
     serverFunctions.renderAndCache(app, req, res, actualPage, req.query);
   });
 
-  server.get("/browse-by-partner", (req, res) => {
-    app.render(req, res, "/browse-by-partner", req.query);
+  server.get("/browse-by-contributor", (req, res) => {
+    app.render(req, res, "/local/browse-by-contributor", req.query);
   });
 
   server.get("/browse-by-place", (req, res) => {

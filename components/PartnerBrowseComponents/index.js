@@ -28,28 +28,13 @@ const mapPartnersToComponents = partners =>
     </li>
   );
 
-const PartnerMap = ({ src, width, height}) =>
-  <div className={`${css.partnerMap}`}>
-    <iframe
-      src={`${src}`}
-      width={`${width}`}
-      height={`${height}`}>
-    </iframe>
-  </div>;
-
-const PartnerBrowseContent = ({ route, partners, googleMap }) =>
+const PartnerBrowseContent = ({ route, partners }) =>
   <div className={`${utils.container} ${css.partnerBrowse}`}>
     <div className={`row`}>
       <ul className={`${css.partners} col-xs-12`}>
         {mapPartnersToComponents(partners)}
       </ul>
     </div>
-    {(googleMap != null) &&
-    <PartnerMap
-      src={googleMap.src}
-      width={googleMap.width}
-      height={googleMap.height}
-    />}
   </div>;
 
 export default PartnerBrowseContent;
