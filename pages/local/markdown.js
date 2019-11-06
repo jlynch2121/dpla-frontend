@@ -1,10 +1,9 @@
 import React from "react";
 import fetch from "isomorphic-fetch";
-import Router, { withRouter } from "next/router";
+import { withRouter } from "next/router";
 import ReactMarkdown from "react-markdown";
 
 import MainLayout from "components/MainLayout";
-
 import Sidebar from "components/MainLayout/components/shared/LocalSidebar.js"
 import FeatureHeader from "shared/FeatureHeader";
 import BreadcrumbsModule from "shared/BreadcrumbsModule";
@@ -16,8 +15,6 @@ import { LOCALS } from "constants/local";
 
 import utils from "stylesheets/utils.scss";
 import contentCss from "stylesheets/content-pages.scss";
-
-import Link from "next/link";
 
 class MarkdownPage extends React.Component {
   render() {
@@ -36,7 +33,7 @@ class MarkdownPage extends React.Component {
       objects.isActive = false;
       return objects;
     }).filter(page =>
-      page.category == pageData.category
+      page.category === pageData.category
     );
 
     var breadcrumbs = [];

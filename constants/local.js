@@ -30,6 +30,7 @@ const LOCALS = {
     hasBrowse: true,
     hasMap: true,
     googleMapSpecs: {
+      title: "Map of Illinois Digital Heritage Hub Contributors",
       src: "https://www.google.com/maps/d/embed?mid=1LaS0G_rC1Ak87jq73_MAB5dmBIPzMuYS",
       width: "1000",
       height: "750"

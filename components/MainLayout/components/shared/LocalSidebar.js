@@ -18,7 +18,11 @@ const NestedSidebarLinks = ({ activePage, topLevelItem, items }) => {
 
   return(
     <div>
-      {(topLevelItem != undefined) &&
+      {(items[0].category === "Browse by") &&
+        <p className={css.localParentLabel}>
+          Browse by:
+        </p>}
+      {(topLevelItem !== undefined) &&
       <SidebarLink
         route={topLevelItem.route}
         isActive={topLevelItem.isActive}
@@ -53,7 +57,7 @@ const Sidebar = ({ className, items, activePage }) => {
     not rendered with data from the routes object in Locals.js, which is where
     all the other pages' data ultimately comes from
   */
-  if (items[0].category == "About") {
+  if (items[0].category === "About") {
     items.unshift({
       route: "/about",
       title: "About",

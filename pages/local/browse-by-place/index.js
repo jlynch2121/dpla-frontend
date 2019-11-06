@@ -22,15 +22,16 @@ const PlaceBrowse = ({ places, url }) =>
     />
     <div className={`${utils.container} ${contentCss.sidebarAndContentWrapper}`}>
       <div className="row">
-        <div className="col-xs-12 col-md-4">
-          <Sidebar
-            className={contentCss.sidebar}
-            items={BROWSE_PAGES}
-            activePage={"/browse-by-place"}
-          />
-        </div>
+        <Sidebar
+          className={contentCss.sidebar}
+          items={BROWSE_PAGES}
+          activePage={"/browse-by-place"}
+        />
         <div className="col-xs-12 col-md-7">
           <div id="main" role="main">
+            <div className={contentCss.content}>
+              <h1>Places</h1>
+            </div>
             <PlaceBrowseContent places={places} />
           </div>
         </div>

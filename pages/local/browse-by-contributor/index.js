@@ -26,15 +26,16 @@ const ContributorBrowse = ({ contributors, url, googleMap }) =>
         />
         <div className={`${utils.container} ${contentCss.sidebarAndContentWrapper}`}>
           <div className="row">
-            <div className="col-xs-12 col-md-4">
-              <Sidebar
-                className={contentCss.sidebar}
-                items={BROWSE_PAGES}
-                activePage={"/browse-by-contributor"}
-              />
-            </div>
+            <Sidebar
+              className={contentCss.sidebar}
+              items={BROWSE_PAGES}
+              activePage={"/browse-by-contributor"}
+            />
             <div className="col-xs-12 col-md-7">
               <div id="main" role="main">
+                <div className={contentCss.content}>
+                  <h1>Contributors</h1>
+                </div>
                 <ContributorBrowseContent contributors={contributors} googleMap={googleMap} />
               </div>
             </div>

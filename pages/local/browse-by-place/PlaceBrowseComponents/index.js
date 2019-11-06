@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 
-import utils from "stylesheets/utils.scss";
 import css from "./PlaceBrowseContent.scss";
 
 const Place = ({ imageId, name, searchTerm, index, description }) =>
@@ -16,6 +15,7 @@ const Place = ({ imageId, name, searchTerm, index, description }) =>
           <img
             src={`http://idhh.dp.la/thumb/${imageId}`}
             className={css.image}
+            alt=""
           />
         </a>
       </Link>

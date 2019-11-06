@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { addCommasToNumber } from "lib";
 
-import utils from "stylesheets/utils.scss";
 import css from "./ContributorBrowseContent.scss";
 
 const Contributor = ({ name, itemCount, facetName, index }) =>
@@ -28,12 +27,13 @@ const mapContributorsToComponents = contributors =>
     </li>
   );
 
-const ContributorMap = ({ src, width, height}) =>
+const ContributorMap = ({ title, src, width, height}) =>
   <div className={`${css.contributorMap}`}>
     <iframe
-      src={`${src}`}
-      width={`${width}`}
-      height={`${height}`}>
+      title={title}
+      src={src}
+      width={width}
+      height={height}>
     </iframe>
   </div>;
 
@@ -44,6 +44,7 @@ const ContributorBrowseContent = ({ route, contributors, googleMap }) =>
     </ul>
     {(googleMap != null) &&
       <ContributorMap
+        title={googleMap.title}
         src={googleMap.src}
         width={googleMap.width}
         height={googleMap.height}

@@ -15,8 +15,6 @@ import { LOCALS } from "constants/local";
 import utils from "stylesheets/utils.scss";
 import contentCss from "stylesheets/content-pages.scss";
 
-import Link from "next/link";
-
 
 class AboutPage extends React.Component {
   refreshExternalLinks() {
@@ -50,7 +48,7 @@ class AboutPage extends React.Component {
         objects.isActive = false;
         return objects;
       }).filter(page =>
-        page.category == "About"
+        page.category === "About"
       );
     }
 
@@ -72,7 +70,7 @@ class AboutPage extends React.Component {
               items={pages}
               activePage={router.asPath}
             />}
-            {((pages == null) || (pages.length == 0)) &&
+            {((pages == null) || (pages.length === 0)) &&
               <div className={`col-xs-12 col-md-4`}/>
             }
             <div className="col-xs-12 col-md-7">
