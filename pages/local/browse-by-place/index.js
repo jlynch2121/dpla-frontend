@@ -3,10 +3,10 @@ import React from "react";
 import MainLayout from "components/MainLayout";
 import FeatureHeader from "shared/FeatureHeader";
 import PlaceBrowseContent from "pages/local/browse-by-place/PlaceBrowseComponents";
+import Sidebar from "components/MainLayout/components/shared/LocalSidebar.js";
 
-import { TITLE, DESCRIPTION } from "constants/browse-by-place";
-import { LOCALS } from "constants/local";
-import { SITE_ENV, LOCAL_ID } from "constants/env";
+import { TITLE, DESCRIPTION } from "constants/browse";
+import { BROWSE_PAGES } from "constants/il-browse-pages-data";
 import { PLACES } from "constants/il-places";
 
 import css from "pages/local/browse-by-place/PlaceBrowseComponents/PlaceBrowseContent.scss";
@@ -14,7 +14,7 @@ import contentCss from "stylesheets/content-pages.scss";
 import utils from "stylesheets/utils.scss";
 
 const PlaceBrowse = ({ places, url }) =>
-  <MainLayout route={url} pageTitle={TITLE}>
+  <MainLayout route={url} pageTitle={"Browse by Place"}>
     <FeatureHeader
       titleClassName={css.featureTitle}
       title={TITLE}
@@ -23,7 +23,11 @@ const PlaceBrowse = ({ places, url }) =>
     <div className={`${utils.container} ${contentCss.sidebarAndContentWrapper}`}>
       <div className="row">
         <div className="col-xs-12 col-md-4">
-          <p>Menu goes here</p>
+          <Sidebar
+            className={contentCss.sidebar}
+            items={BROWSE_PAGES}
+            activePage={"/browse-by-place"}
+          />
         </div>
         <div className="col-xs-12 col-md-7">
           <div id="main" role="main">

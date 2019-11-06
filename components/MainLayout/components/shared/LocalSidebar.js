@@ -64,10 +64,11 @@ const Sidebar = ({ className, items, activePage }) => {
   }
 
   if (items.length > 1) {
-    // determine which page is active and flag them via the isActive key
+    // determine which page is active and flag it via the isActive key
     items[items.map(item => {
+      item.isActive = false;
       return item.route;
-    }).indexOf(`${activePage}`)].isActive = true;
+    }).indexOf(activePage)].isActive = true;
 
     /*
       identify top level page so that its link can be
@@ -78,8 +79,6 @@ const Sidebar = ({ className, items, activePage }) => {
     const topLevelPage = items.filter(item => {
       return item.isTopLevel;
     })[0];
-
-    console.log(topLevelPage);
 
     items = items.filter(item => {
       return !item.isTopLevel;

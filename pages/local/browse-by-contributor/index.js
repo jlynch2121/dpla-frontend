@@ -8,17 +8,17 @@ import ContributorBrowseContent from "pages/local/browse-by-contributor/Contribu
 
 import { getCurrentUrl } from "lib";
 import { API_ENDPOINT } from "constants/items";
-import { TITLE, DESCRIPTION } from "constants/browse-by-contributor";
-import { BROWSE } from "constants/il-browse";
+import { TITLE, DESCRIPTION } from "constants/browse";
+import { BROWSE_PAGES } from "constants/il-browse-pages-data";
 import { LOCALS } from "constants/local";
-import { SITE_ENV, LOCAL_ID } from "constants/env";
+import { LOCAL_ID } from "constants/env";
 
 import css from "pages/local/browse-by-contributor/ContributorBrowseComponents/ContributorBrowseContent.scss";
 import contentCss from "stylesheets/content-pages.scss";
 import utils from "stylesheets/utils.scss";
 
 const ContributorBrowse = ({ contributors, url, googleMap }) =>
-    <MainLayout route={url} pageTitle={TITLE}>
+    <MainLayout route={url} pageTitle={"Browse by Contributor"}>
         <FeatureHeader
           titleClassName={css.featureTitle}
           title={TITLE}
@@ -27,7 +27,11 @@ const ContributorBrowse = ({ contributors, url, googleMap }) =>
         <div className={`${utils.container} ${contentCss.sidebarAndContentWrapper}`}>
           <div className="row">
             <div className="col-xs-12 col-md-4">
-              <p>Menu goes here</p>
+              <Sidebar
+                className={contentCss.sidebar}
+                items={BROWSE_PAGES}
+                activePage={"/browse-by-contributor"}
+              />
             </div>
             <div className="col-xs-12 col-md-7">
               <div id="main" role="main">
