@@ -28,6 +28,26 @@ const LOCALS = {
     hasTerms: false,
     hasContact: false,
     hasBrowse: true,
+    browseRoutes: {
+      "/browse": {
+        parentDir: "/browse",
+        title: "Browse Collections",
+        description: "",
+        category: "Browse"
+      },
+      "/browse/contributors": {
+        parentDir: "/browse",
+        title: "Contributors",
+        description: "",
+        category: "Browse"
+      },
+      "/browse/places": {
+        parentDir: "/browse",
+        title: "Places",
+        description: "",
+        category: "Browse"
+      }
+    },
     hasMap: true,
     googleMapSpecs: {
       title: "Map of Illinois Digital Heritage Hub Contributors",

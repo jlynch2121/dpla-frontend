@@ -18,10 +18,6 @@ const NestedSidebarLinks = ({ activePage, topLevelItem, items }) => {
 
   return(
     <div>
-      {(items[0].category === "Browse by") &&
-        <p className={css.localParentLabel}>
-          Browse by:
-        </p>}
       {(topLevelItem !== undefined) &&
       <SidebarLink
         route={topLevelItem.route}

@@ -1,13 +1,13 @@
 export const BROWSE_PAGES = [
   {
-    route: "/browse-by-contributor",
+    route: "/browse/contributors",
     title: "Constributors",
     category: "Browse by",
     isTopLevel: false,
     isActive: false
   },
   {
-    route: "/browse-by-place",
+    route: "/browse/places",
     title: "Places",
     category: "Browse by",
     isTopLevel: false,

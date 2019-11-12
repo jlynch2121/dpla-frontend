@@ -6,6 +6,7 @@ const localId = process.env.LOCAL_ID;
 const local = locals["LOCALS"][localId];
 
 const dynamicRoutes = local.routes ? local.routes : null;
+const browseRoutes = local.browseRoutes ? local.browseRoutes : null;
 
 module.exports.dynamic = (app, server) => {
   if (local.routes) {
@@ -67,13 +68,25 @@ module.exports.static = (app, server) => {
     serverFunctions.renderAndCache(app, req, res, actualPage, req.query);
   });
 
-  server.get("/browse-by-contributor", (req, res) => {
-    app.render(req, res, "/local/browse-by-contributor", req.query);
-  });
+  if (local.browseRoutes) {
+    const routes = Object.keys(browseRoutes);
+    console.log(routes);
+    routes.map(route => {
+      server.get(route, (req, res) => {
+        app.render(req, res, "/local" + route, req.query);
+        console.log(route);
+      });
+    });
+  }
 
-  server.get("/browse-by-place", (req, res) => {
-    app.render(req, res, "/local/browse-by-place", req.query);
-  });
+  /*if (local.browseRoutes) {
+    const routes = Object.keys(browseRoutes);
+    console.log(routes);
+    console.log(routes[0]);
+    server.get(routes[0], (req, res) => {
+      app.render(req, res, "/local" + routes[0], req.query);
+    });
+  }*/
 
   // item routes
   server.get("/item/:itemId", (req, res) => {
