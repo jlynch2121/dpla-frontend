@@ -4,14 +4,11 @@ import MainLayout from "components/MainLayout";
 import PlaceBrowseContent from "pages/local/browse/places/PlaceBrowseComponents";
 import BreadcrumbsModule from "shared/BreadcrumbsModule";
 
-import { TITLE, DESCRIPTION } from "constants/browse";
-import { BROWSE_PAGES } from "constants/il-browse-pages-data";
 import { PLACES } from "constants/il-places";
 import { LOCALS } from "constants/local";
 import { LOCAL_ID } from "constants/env";
 
-import css from "pages/local/browse/places/PlaceBrowseComponents/PlaceBrowseContent.scss";
-import contentCss from "stylesheets/content-pages.scss";
+import css from "stylesheets/content-pages.scss";
 import utils from "stylesheets/utils.scss";
 
 class PlaceBrowse extends React.Component {
@@ -38,18 +35,12 @@ class PlaceBrowse extends React.Component {
           breadcrumbs={breadcrumbs}
           route={pageData.parentDir}
         />
-        <div
-          className={`${utils.container} ${contentCss.sidebarAndContentWrapper}`}
-        >
-          <div className="row">
-            <div className="col-xs-12 col-md-7">
-              <div id="main" role="main">
-                <div className={contentCss.content}>
-                  <h1>Places</h1>
-                </div>
-                <PlaceBrowseContent places={places} />
-              </div>
+        <div className={`${utils.container} ${css.sidebarAndContentWrapper}`}>
+          <div id="main" role="main">
+            <div className={css.content}>
+              <h1>{pageData.title}</h1>
             </div>
+            <PlaceBrowseContent places={places} />
           </div>
         </div>
       </MainLayout>

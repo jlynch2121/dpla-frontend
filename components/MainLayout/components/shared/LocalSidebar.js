@@ -100,9 +100,9 @@ const Sidebar = ({ className, items, activePage }) => {
       </div>
     );
   } else
-    return (
-      <div className="col-xs-12 col-md-4"/>
-  );
+      return (
+        <div className="col-xs-12 col-md-4"/>
+      );
 };
 
 export default Sidebar;

@@ -3,13 +3,15 @@ import Link from "next/link";
 
 import { addCommasToNumber } from "lib";
 
-import css from "./ContributorBrowseContent.scss";
+import utils from "stylesheets/utils.scss";
+import browseCss from "pages/local/browse/browse.scss";
+import contributorCss from "./ContributorBrowseContent.scss";
 
 const Contributor = ({ name, itemCount, facetName, index }) =>
   <Link href={`/search?${facetName}="${name}"`}>
-    <a className={css.contributorLink}>
-      <span className={css.name}>{name}</span>
-      <span className={css.itemCount}>
+    <a className={contributorCss.contributorLink}>
+      <span className={contributorCss.name}>{name}</span>
+      <span className={contributorCss.itemCount}>
         {addCommasToNumber(itemCount)}
       </span>
     </a>
@@ -28,7 +30,7 @@ const mapContributorsToComponents = contributors =>
   );
 
 const ContributorMap = ({ title, src, width, height}) =>
-  <div className={`${css.contributorMap}`}>
+  <div className={`${contributorCss.contributorMap}`}>
     <iframe
       title={title}
       src={src}
@@ -38,10 +40,12 @@ const ContributorMap = ({ title, src, width, height}) =>
   </div>;
 
 const ContributorBrowseContent = ({ route, contributors, googleMap }) =>
-  <div className={css.contributorBrowse}>
-    <ul>
-      {mapContributorsToComponents(contributors)}
-    </ul>
+  <div className={`${utils.container} ${browseCss.browse}`}>
+    <div className={`row`}>
+      <ul className={`${browseCss.browseItems} col-xs-12`}>
+        {mapContributorsToComponents(contributors)}
+      </ul>
+    </div>
     {(googleMap != null) &&
       <ContributorMap
         title={googleMap.title}

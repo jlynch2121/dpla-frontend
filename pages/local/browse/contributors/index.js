@@ -7,13 +7,10 @@ import BreadcrumbsModule from "shared/BreadcrumbsModule";
 
 import { getCurrentUrl } from "lib";
 import { API_ENDPOINT } from "constants/items";
-import { TITLE, DESCRIPTION } from "constants/browse";
-import { BROWSE_PAGES } from "constants/il-browse-pages-data";
 import { LOCALS } from "constants/local";
 import { LOCAL_ID } from "constants/env";
 
-import css from "pages/local/browse/contributors/ContributorBrowseComponents/ContributorBrowseContent.scss";
-import contentCss from "stylesheets/content-pages.scss";
+import css from "stylesheets/content-pages.scss";
 import utils from "stylesheets/utils.scss";
 
 class ContributorBrowse extends React.Component {
@@ -34,24 +31,22 @@ class ContributorBrowse extends React.Component {
       });
     };
     return(
-      <MainLayout route={url} pageTitle={pageData.title}>
-        <BreadcrumbsModule
-          breadcrumbs={breadcrumbs}
-          route={pageData.parentDir}
-        />
-          <div className={`${utils.container} ${contentCss.sidebarAndContentWrapper}`}>
-            <div className="row">
-              <div className="col-xs-12 col-md-7">
-                <div id="main" role="main">
-                  <div className={contentCss.content}>
-                    <h1>Contributors</h1>
-                  </div>
-                  <ContributorBrowseContent contributors={contributors} googleMap={googleMap} />
-                </div>
+      <div>
+        <MainLayout route={url} pageTitle={pageData.title}>
+          <BreadcrumbsModule
+            breadcrumbs={breadcrumbs}
+            route={pageData.parentDir}
+          />
+          <div className={`${utils.container} ${css.sidebarAndContentWrapper}`}>
+            <div id="main" role="main">
+              <div className={css.content}>
+                <h1>{pageData.title}</h1>
               </div>
+              <ContributorBrowseContent contributors={contributors} googleMap={googleMap} />
             </div>
           </div>
-      </MainLayout>
+        </MainLayout>
+      </div>
     );
   }
 }

@@ -1,32 +1,34 @@
 import React from "react";
 import Link from "next/link";
 
-import css from "./PlaceBrowseContent.scss";
+import utils from "stylesheets/utils.scss";
+import browseCss from "pages/local/browse/browse.scss";
+import placeCss from "./PlaceBrowseContent.scss";
 
 const Place = ({ imageId, name, searchTerm, index, description }) =>
   <div>
-    <div className={css.imageWrapper}>
+    <div className={placeCss.imageWrapper}>
       <Link href={`/search?location=${searchTerm}`}>
         <a
-          className={`${css.locationImageLink} internalItemLink`}
+          className={`${placeCss.placeImageLink} internalItemLink`}
           title={name}
           aria-hidden
         >
           <img
             src={`http://idhh.dp.la/thumb/${imageId}`}
-            className={css.image}
+            className={placeCss.image}
             alt=""
           />
         </a>
       </Link>
     </div>
-    <div className={css.textWrapper}>
+    <div className={placeCss.textWrapper}>
       <Link href={`/search?location=${searchTerm}`}>
-        <a className={css.placeLink}>
-          <span className={css.name}>{name}</span>
+        <a className={placeCss.placeLink}>
+          <span className={placeCss.name}>{name}</span>
         </a>
       </Link>
-      <p className={css.descriptionText}>{description}</p>
+      <p className={placeCss.descriptionText}>{description}</p>
     </div>
   </div>;
 
@@ -34,7 +36,7 @@ const mapPlacesToComponents = places =>
   places.map((place, index) =>
     <li
       key={`pl_${index}`}
-      className={css.place}
+      className={placeCss.place}
     >
       <Place
         imageId={place.imageId}
@@ -47,10 +49,12 @@ const mapPlacesToComponents = places =>
   );
 
 const PlaceBrowseContent = ({ route, places }) =>
-  <div className={css.placeBrowse}>
-    <ul>
-      {mapPlacesToComponents(places)}
-    </ul>
+  <div className={`${utils.container} ${browseCss.browse}`}>
+    <div className={`row`}>
+      <ul className={`${browseCss.browseItems} col-xs-12`}>
+        {mapPlacesToComponents(places)}
+      </ul>
+    </div>
   </div>;
 
 export default PlaceBrowseContent;

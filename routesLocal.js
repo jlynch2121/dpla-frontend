@@ -70,11 +70,9 @@ module.exports.static = (app, server) => {
 
   if (local.browseRoutes) {
     const routes = Object.keys(browseRoutes);
-    console.log(routes);
     routes.map(route => {
       server.get(route, (req, res) => {
         app.render(req, res, "/local" + route, req.query);
-        console.log(route);
       });
     });
   }
