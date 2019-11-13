@@ -12,7 +12,7 @@ import css from "stylesheets/content-pages.scss";
 import utils from "stylesheets/utils.scss";
 
 class PlaceBrowse extends React.Component {
-  render(){
+  render() {
 
     const { places, pageData, url } = this.props;
 

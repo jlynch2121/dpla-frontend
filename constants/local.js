@@ -33,19 +33,29 @@ const LOCALS = {
         parentDir: "/browse",
         title: "Browse Collections",
         description: "",
-        category: "Browse"
+        category: "Browse",
+        icon: ""
       },
       "/browse/contributors": {
         parentDir: "/browse",
         title: "Contributors",
         description: "",
-        category: "Browse"
+        category: "Browse",
+        icon: "browse-formats.png"
       },
       "/browse/places": {
         parentDir: "/browse",
         title: "Places",
         description: "",
-        category: "Browse"
+        category: "Browse",
+        icon: "illinois-road-map.jpg"
+      },
+      "/browse/format": {
+        parentDir: "/browse",
+        title: "Formats",
+        description: "",
+        category: "Browse",
+        icon: "browse-formats.png"
       }
     },
     hasMap: true,
