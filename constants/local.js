@@ -34,28 +34,32 @@ const LOCALS = {
         title: "Browse Collections",
         description: "",
         category: "Browse",
-        icon: ""
+        icon: "",
+        isTopLevel: true
       },
       "/browse/contributors": {
         parentDir: "/browse",
         title: "Contributors",
-        description: "",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
         category: "Browse",
-        icon: "browse-formats.png"
+        icon: "illinois-contributor-browse.jpg",
+        isTopLevel: false
       },
       "/browse/places": {
         parentDir: "/browse",
         title: "Places",
-        description: "",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
         category: "Browse",
-        icon: "illinois-road-map.jpg"
+        icon: "illinois-road-map.jpg",
+        isTopLevel: false
       },
       "/browse/format": {
         parentDir: "/browse",
         title: "Formats",
-        description: "",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
         category: "Browse",
-        icon: "browse-formats.png"
+        icon: "browse-formats.png",
+        isTopLevel: false
       }
     },
     hasMap: true,
