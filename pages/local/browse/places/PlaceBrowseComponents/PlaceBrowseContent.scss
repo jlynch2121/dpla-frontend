@@ -1,9 +1,5 @@
 @import "stylesheets/variables";
 
-.descriptionText {
-  font-size: .9rem;
-}
-
 .place {
   border-bottom: 0.075rem solid $lightBorderColor;
   display: flex;
@@ -45,19 +41,4 @@
     margin: 0 1rem;
     width: calc(34% - 2rem);
   }
-}
-
-.placeImageLink {
-  align-items: center;
-  background-color: white;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  padding: 0.5rem;
-  width: 100%;
-}
-
-.image {
-  max-height: 100%;
-  max-width: 100%;
 }

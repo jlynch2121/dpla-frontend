@@ -10,13 +10,13 @@ const Place = ({ imageId, name, searchTerm, index, description }) =>
     <div className={placeCss.imageWrapper}>
       <Link href={`/search?location=${searchTerm}`}>
         <a
-          className={`${placeCss.placeImageLink} internalItemLink`}
+          className={`${browseCss.imageLink} internalItemLink`}
           title={name}
           aria-hidden
         >
           <img
             src={`http://idhh.dp.la/thumb/${imageId}`}
-            className={placeCss.image}
+            className={browseCss.image}
             alt=""
           />
         </a>
@@ -28,7 +28,7 @@ const Place = ({ imageId, name, searchTerm, index, description }) =>
           <span className={placeCss.name}>{name}</span>
         </a>
       </Link>
-      <p className={placeCss.descriptionText}>{description}</p>
+      <p className={browseCss.descriptionText}>{description}</p>
     </div>
   </div>;
 

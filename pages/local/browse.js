@@ -12,32 +12,36 @@ import { TITLE, DESCRIPTION } from "constants/browse";
 
 import utils from "stylesheets/utils.scss";
 import css from "pages/local/browse/BrowseLandingPage.scss";
+import browseCss from "./browse/browse.scss";
+import contentCss from "stylesheets/content-pages.scss";
 
-const BrowseCategory = ( {route, linkTitle, iconDir, description} ) => {
+const BrowseCategory = ( {route, imageLinkTitle, textLinkTitle, iconDir, description} ) => {
   return (
     <div>
       <div className={css.imageWrapper}>
         <Link prefetch href={"/local" + route} as={route}>
           <a
-            className={`${css.imageLink} internalItemLink`}
-            title={linkTitle}
+            className={`${browseCss.imageLink} internalItemLink`}
+            title={imageLinkTitle}
             aria-hidden
           >
             <img
               src={iconDir}
-              className={css.image}
-              alt={linkTitle}
+              className={browseCss.image}
+              alt={imageLinkTitle}
             />
           </a>
         </Link>
       </div>
-      <div>
+      <div className={css.textWrapper}>
         <Link prefetch href={"/local" + route} as={route}>
-          <a>
-            <span>{linkTitle}</span>
-          </a>
+            <a className={css.link}>
+              <div className={contentCss.content}>
+                <span><h1>{textLinkTitle}</h1></span>
+              </div>
+            </a>
         </Link>
-        <p>{description}</p>
+        <p className={browseCss.descriptionText}>{description}</p>
       </div>
     </div>
   );
@@ -45,16 +49,20 @@ const BrowseCategory = ( {route, linkTitle, iconDir, description} ) => {
 
 const BrowseCategories = ( {browseData} ) => {
   return (
-    <div className={`${utils.container} ${css.browse}`}>
+    <div className={`${utils.container} ${browseCss.browse}`}>
       <div className={`row`}>
         <ul className={`${css.browseCategories} col-xs-12`}>
           {browseData.
             map(browseCategoryItem => {
               return (
-                <li key={browseCategoryItem.route}>
+                <li
+                  key={`place_${browseCategoryItem.route}`}
+                  className={css.browseCategory}
+                >
                   <BrowseCategory
                     route={browseCategoryItem.route}
-                    linkTitle={browseCategoryItem.linkTitle}
+                    imageLinkTitle={browseCategoryItem.imageLinkTitle}
+                    textLinkTitle={browseCategoryItem.textLinkTitle}
                     iconDir={browseCategoryItem.iconDir}
                     description={browseCategoryItem.description}
                   />
@@ -100,8 +108,9 @@ Browse.getInitialProps = async () => {
     const objects = Object.assign({}, i);
 
     objects.route = browseRoutes[i];
-    objects.linkTitle = browsePagesData[browseRoutes[i]].category +
+    objects.imageLinkTitle = browsePagesData[browseRoutes[i]].category +
       " " + browsePagesData[browseRoutes[i]].title;
+    objects.textLinkTitle = browsePagesData[browseRoutes[i]].title;
     objects.description = browsePagesData[browseRoutes[i]].description;
     objects.iconDir = "static/local/illinois/browse-images/" +
       browsePagesData[browseRoutes[i]].icon;
