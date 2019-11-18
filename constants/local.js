@@ -53,7 +53,7 @@ const LOCALS = {
         icon: "illinois-road-map.jpg",
         isTopLevel: false
       },
-      "/browse/format": {
+      "/browse/formats": {
         parentDir: "/browse",
         title: "Formats",
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",

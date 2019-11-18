@@ -52,8 +52,8 @@ class MarkdownPage extends React.Component {
     return (
       <MainLayout
         route={router}
-        pageTitle={`${pageData.title}`}
-        pageDescription={`${pageData.description}`}
+        pageTitle={pageData.title}
+        pageDescription={pageData.description}
       >
       {breadcrumbs.length > 0 &&
         <BreadcrumbsModule
