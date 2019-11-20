@@ -86,65 +86,19 @@ The Illinois Digital Heritage Hub brings together unique digital cultural herita
 
   The 44th President of the United States began his political career as a community organizer in Chicago
 
-## Illinois Communities
+## [More Categories >](/browse)
 
-- ### [Chicago](/search?location=*Chicago*)
+- ### [Contributors](/browse/contributors)
 
-  Illinois’ largest and North America’s fourth most populous city
+  [![Contributors](/static/local/illinois/homepage-images/contributors.png "Browse contributing institutions")](/browse/contributors)
 
-- ### [Aurora](/search?&location=*Aurora*&location=*Il*)
+- ### [Places](/browse/places)
 
-  The “City of Lights” is one of Illinois’ most populous
+  [![Places](/static/local/illinois/homepage-images/places.png "Browse place")](/browse/places)
 
-- ### [Naperville](/search?subject=*Naperville*)
+- ### [Formats](/browse/formats)
 
-  Home to one of the best-loved public libraries in the U.S.
-
-- ### [Joliet](/search?subject=*Joliet*)
-
-  Founded on one of the earliest European settlements in Illinois
-
-- ### [Rockford](/search?location=*Rockford*)
-
-  Learn about the rich history of the Forest City
-
-- ### [Springfield](/search?location=*Springfield*&location=*Il*)
-
-  The Home of Lincoln and the Illinois state capitol
-
-- ### [Elgin](/search?location=*Elgin*)
-
-  The Jewel of the Midwest has a long history of settlement since the pre-Columbian era
-
-- ### [Peoria](/search?location=*Peoria*)
-
-  Peoria is known for museums and one of the oldest symphony orchestras in the U.S.
-
-- ### [Champaign](/search?location=*Champaign*)
-
-  Home of Roger Ebert and the University of Illinois flagship campus
-
-## Collections by Format
-
-- ### [Images](/search?&type=%22image%22)
-
-  An immense collection of images, including posters, postcards, portraits, and paintings
-
-- ### [Text](/search?&type=%22text%22)
-
-  A wealth of textual documents, including historical newspapers and clippings, dime novels, and letters
-
-- ### [Audio](/search?&type=%22sound%22)
-
-  Sounds recordings include interviews and oral histories with civil rights activists, veterans, and scholars
-
-- ### [Physical Objects](/search?type=%22physical%20object%22)
-
-  Digitized physical artifacts, such as prehistoric tools and weapons, artwork, clothing, and jewelry
-
-- ### [Video](/search?&type=%22moving%20image%22)
-
-  Videos include interviews with Illinois veterans, theatrical performances, lectures, historical footage, and more
+  [![Formats](/static/local/illinois/homepage-images/formats.png  "Browse formats")](/browse/formats)
 
 ## [IDHH Highlights Blog](https://ildplacollections.wordpress.com/)
 

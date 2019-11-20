@@ -30,6 +30,7 @@ class FormatBrowse extends React.Component {
         title: pageData.title
       });
     };
+
     return(
       <div>
         <MainLayout route={url} pageTitle={pageData.title}>
