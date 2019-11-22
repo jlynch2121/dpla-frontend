@@ -12,7 +12,6 @@ import { TITLE, DESCRIPTION } from "constants/browse";
 import utils from "stylesheets/utils.scss";
 import css from "pages/local/browse/BrowseLandingPage.scss";
 import browseCss from "./browse/browse.scss";
-import contentCss from "stylesheets/content-pages.scss";
 
 const BrowseCategory = ( {route, imageLinkTitle, textLinkTitle, iconDir, description} ) => {
   return (
@@ -34,11 +33,9 @@ const BrowseCategory = ( {route, imageLinkTitle, textLinkTitle, iconDir, descrip
       </div>
       <div className={css.textWrapper}>
         <Link prefetch href={"/local" + route} as={route}>
-            <a className={css.link}>
-              <div className={contentCss.content}>
-                <span><h1>{textLinkTitle}</h1></span>
-              </div>
-            </a>
+          <a className={css.link}>
+            <span><h1 className={css.header}>{textLinkTitle}</h1></span>
+          </a>
         </Link>
         <p className={browseCss.descriptionText}>{description}</p>
       </div>

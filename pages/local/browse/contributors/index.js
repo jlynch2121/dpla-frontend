@@ -11,8 +11,7 @@ import { API_ENDPOINT } from "constants/items";
 import { LOCALS } from "constants/local";
 import { LOCAL_ID } from "constants/env";
 
-import css from "stylesheets/content-pages.scss";
-import utils from "stylesheets/utils.scss";
+import css from "pages/local/browse/browse.scss";
 
 class ContributorBrowse extends React.Component {
   render(){
@@ -20,7 +19,7 @@ class ContributorBrowse extends React.Component {
     const {contributors, url, googleMap, pageData } = this.props;
 
     const breadcrumbs = getLocalBreadcrumbs(pageData);
-    
+
     return(
       <div>
         <MainLayout route={url} pageTitle={pageData.title}>
@@ -28,13 +27,9 @@ class ContributorBrowse extends React.Component {
             breadcrumbs={breadcrumbs}
             route={pageData.parentDir}
           />
-          <div className={`${utils.container} ${css.sidebarAndContentWrapper}`}>
-            <div id="main" role="main">
-              <div className={css.content}>
-                <h1>{pageData.title}</h1>
-              </div>
-              <ContributorBrowseContent contributors={contributors} googleMap={googleMap} />
-            </div>
+          <div id="main" role="main">
+            <h1 className={css.header}>{pageData.title}</h1>
+            <ContributorBrowseContent contributors={contributors} googleMap={googleMap} />
           </div>
         </MainLayout>
       </div>

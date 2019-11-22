@@ -9,8 +9,7 @@ import { PLACES } from "constants/il-places";
 import { LOCALS } from "constants/local";
 import { LOCAL_ID } from "constants/env";
 
-import css from "stylesheets/content-pages.scss";
-import utils from "stylesheets/utils.scss";
+import css from "pages/local/browse/browse.scss";
 
 class PlaceBrowse extends React.Component {
   render() {
@@ -25,13 +24,9 @@ class PlaceBrowse extends React.Component {
           breadcrumbs={breadcrumbs}
           route={pageData.parentDir}
         />
-        <div className={`${utils.container} ${css.sidebarAndContentWrapper}`}>
-          <div id="main" role="main">
-            <div className={css.content}>
-              <h1>{pageData.title}</h1>
-            </div>
-            <PlaceBrowseContent places={places} />
-          </div>
+        <div id="main" role="main">
+          <h1 className={css.header}>{pageData.title}</h1>
+          <PlaceBrowseContent places={places} />
         </div>
       </MainLayout>
     );

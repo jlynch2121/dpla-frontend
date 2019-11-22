@@ -11,8 +11,7 @@ import { API_ENDPOINT } from "constants/items";
 import { LOCALS } from "constants/local";
 import { LOCAL_ID } from "constants/env";
 
-import css from "stylesheets/content-pages.scss";
-import utils from "stylesheets/utils.scss";
+import css from "pages/local/browse/browse.scss";
 
 class FormatBrowse extends React.Component {
   render(){
@@ -28,13 +27,9 @@ class FormatBrowse extends React.Component {
             breadcrumbs={breadcrumbs}
             route={pageData.parentDir}
           />
-          <div className={`${utils.container} ${css.sidebarAndContentWrapper}`}>
-            <div id="main" role="main">
-              <div className={css.content}>
-                <h1>{pageData.title}</h1>
-              </div>
-              <FormatBrowseContent formats={formats}/>
-            </div>
+          <div id="main" role="main">
+            <h1 className={css.header}>{pageData.title}</h1>
+            <FormatBrowseContent formats={formats}/>
           </div>
         </MainLayout>
       </div>
