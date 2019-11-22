@@ -4,7 +4,6 @@ import FeatureHeader from "shared/FeatureHeader";
 import Link from "next/link";
 
 import { withRouter } from "next/router";
-import { getCurrentUrl } from "lib";
 
 import { LOCAL_ID } from "constants/env";
 import { LOCALS } from "constants/local";

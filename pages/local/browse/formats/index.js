@@ -6,6 +6,7 @@ import FormatBrowseContent from "pages/local/browse/formats/FormatBrowseComponen
 import BreadcrumbsModule from "shared/BreadcrumbsModule";
 
 import { getCurrentUrl } from "lib";
+import getLocalBreadcrumbs from "lib/getLocalBreadcrumbs";
 import { API_ENDPOINT } from "constants/items";
 import { LOCALS } from "constants/local";
 import { LOCAL_ID } from "constants/env";
@@ -18,18 +19,7 @@ class FormatBrowse extends React.Component {
 
     const {formats, url, pageData } = this.props;
 
-    var breadcrumbs = [];
-
-    if (!pageData.isTopLevel){
-      breadcrumbs.push({
-        title: pageData.category,
-        url: "/local" + pageData.parentDir,
-        as: pageData.parentDir
-      },
-      {
-        title: pageData.title
-      });
-    };
+    const breadcrumbs = getLocalBreadcrumbs(pageData);
 
     return(
       <div>

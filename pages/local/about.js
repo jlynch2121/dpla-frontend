@@ -8,6 +8,7 @@ import Sidebar from "components/MainLayout/components/shared/LocalSidebar.js"
 import FeatureHeader from "shared/FeatureHeader";
 
 import { getCurrentUrl, wordpressLinks } from "lib";
+import getLocalSidebarRoutes from "lib/getLocalSidebarRoutes";
 
 import { LOCAL_ID } from "constants/env";
 import { LOCALS } from "constants/local";
@@ -32,33 +33,17 @@ class AboutPage extends React.Component {
   render() {
     const { router, content, description } = this.props;
 
-    var pages = null;
+    const pageTitle = "About";
 
-    if (LOCALS[LOCAL_ID].routes) {
-      const routesObj = LOCALS[LOCAL_ID].routes;
-
-      const allRoutes = Object.keys(routesObj);
-
-      pages = allRoutes.map(function(page, i) {
-        const objects = Object.assign({}, i);
-        objects.route = allRoutes[i];
-        objects.title = routesObj[allRoutes[i]].title;
-        objects.category = routesObj[allRoutes[i]].category;
-        objects.isTopLevel = routesObj[allRoutes[i]].isTopLevel;
-        objects.isActive = false;
-        return objects;
-      }).filter(page =>
-        page.category === "About"
-      );
-    }
+    const pages = getLocalSidebarRoutes(pageTitle);
 
     return (
       <MainLayout
         route={router}
-        pageTitle={"About"}
+        pageTitle={pageTitle}
         pageDescription={description}
       >
-        <FeatureHeader title={"About"} description={""} />
+        <FeatureHeader title={pageTitle} description={""} />
         <div
           className={`${utils.container}
       ${contentCss.sidebarAndContentWrapper}`}

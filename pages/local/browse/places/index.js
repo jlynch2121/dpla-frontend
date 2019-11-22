@@ -4,6 +4,7 @@ import MainLayout from "components/MainLayout";
 import PlaceBrowseContent from "pages/local/browse/places/PlaceBrowseComponents";
 import BreadcrumbsModule from "shared/BreadcrumbsModule";
 
+import getLocalBreadcrumbs from "lib/getLocalBreadcrumbs";
 import { PLACES } from "constants/il-places";
 import { LOCALS } from "constants/local";
 import { LOCAL_ID } from "constants/env";
@@ -16,18 +17,7 @@ class PlaceBrowse extends React.Component {
 
     const { places, pageData, url } = this.props;
 
-    var breadcrumbs = [];
-
-    if (!pageData.isTopLevel){
-      breadcrumbs.push({
-        title: pageData.category,
-        url: "/local" + pageData.parentDir,
-        as: pageData.parentDir
-      },
-      {
-        title: pageData.title
-      });
-    };
+    const breadcrumbs = getLocalBreadcrumbs(pageData);
 
     return (
       <MainLayout route={url} pageTitle={pageData.title}>

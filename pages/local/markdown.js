@@ -9,6 +9,8 @@ import FeatureHeader from "shared/FeatureHeader";
 import BreadcrumbsModule from "shared/BreadcrumbsModule";
 
 import { getCurrentUrl } from "lib";
+import getLocalBreadcrumbs from "lib/getLocalBreadcrumbs";
+import getLocalSidebarRoutes from "lib/getLocalSidebarRoutes";
 
 import { LOCAL_ID } from "constants/env";
 import { LOCALS } from "constants/local";
@@ -20,34 +22,9 @@ class MarkdownPage extends React.Component {
   render() {
     const { router, pageData, content } = this.props;
 
-    const routesObj = LOCALS[LOCAL_ID].routes;
+    const pages = getLocalSidebarRoutes(pageData.category);
 
-    const allRoutes = Object.keys(routesObj);
-
-    const pages = allRoutes.map(function(page, i) {
-      const objects = Object.assign({}, i);
-      objects.route = allRoutes[i];
-      objects.title = routesObj[allRoutes[i]].title;
-      objects.category = routesObj[allRoutes[i]].category;
-      objects.isTopLevel = routesObj[allRoutes[i]].isTopLevel;
-      objects.isActive = false;
-      return objects;
-    }).filter(page =>
-      page.category === pageData.category
-    );
-
-    var breadcrumbs = [];
-
-    if (!pageData.isTopLevel){
-      breadcrumbs.push({
-        title: pageData.category,
-        url: "/local" + pageData.parentDir,
-        as: pageData.parentDir
-      },
-      {
-        title: pageData.title
-      });
-    };
+    const breadcrumbs = getLocalBreadcrumbs(pageData);
 
     return (
       <MainLayout

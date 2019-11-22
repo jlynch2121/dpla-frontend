@@ -48,21 +48,6 @@ const NestedSidebarLinks = ({ activePage, topLevelItem, items }) => {
 */
 const Sidebar = ({ className, items, activePage }) => {
 
-  /*
-    adds in an object for the About page. Needed because 'About' is
-    not rendered with data from the routes object in Locals.js, which is where
-    all the other pages' data ultimately comes from
-  */
-  if (items[0].category === "About") {
-    items.unshift({
-      route: "/about",
-      title: "About",
-      category: "About",
-      isTopLevel: true,
-      isActive: false}
-    );
-  }
-
   if (items.length > 1) {
     // determine which page is active and flag it via the isActive key
     items[items.map(item => {
@@ -75,7 +60,6 @@ const Sidebar = ({ className, items, activePage }) => {
       rendered a bit differently. Also, remove it from the items object
       so that the link does not get rendered twice
     */
-
     const topLevelPage = items.filter(item => {
       return item.isTopLevel;
     })[0];
