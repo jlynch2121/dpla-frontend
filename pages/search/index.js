@@ -55,9 +55,9 @@ class Search extends React.Component {
       aboutness
     } = this.props;
 
-    var itemCount = 0;// default handles unexpected error
+    var itemCount = 0 // default handles unexpected error
     if ("count" in results) {
-      if (results.count.value !== undefined) {
+      if (results.count.value != undefined) {
         itemCount = results.count.value // ElasticSearch 7
       } else {
         itemCount = results.count // ElasticSearch 6
@@ -108,21 +108,11 @@ Search.getInitialProps = async context => {
   const query = context.query;
   const req = context.req;
   const isLocal = SITE_ENV === "local";
-  let local = isLocal ? LOCALS[LOCAL_ID] : {};
   const isQA = parseCookies(context).hasOwnProperty("qa");
   const currentUrl = getCurrentUrl(req);
   const q = query.q
-    ? encodeURIComponent(query.q)
-          .replace(/'/g, "%27")
-          .replace(/"/g, "%22")
+    ? encodeURIComponent(query.q).replace(/'/g, "%27").replace(/"/g, "%22")
     : "";
-
-  let filters = isLocal && local.filters ? local.filters : [];
-  let tags = [];
-  if (query.tags) {
-    tags = Array.isArray(query.tags) ? query.tags : new Array(query.tags);
-    filters = filters.concat(tags.map(tag => `tags:${tag}`));
-  }
 
   let hasDates = false;
   const theseFacets = isQA ? qaFacets : possibleFacets;
@@ -162,6 +152,10 @@ Search.getInitialProps = async context => {
     })
     .filter(facetQuery => facetQuery !== "");
 
+  if (isLocal) {
+    queryArray.push(`provider.name=${LOCALS[LOCAL_ID].provider}`);
+  }
+
   const facetQueries = queryArray.join("&");
 
   let sort_by = "";
@@ -186,7 +180,7 @@ Search.getInitialProps = async context => {
     const aboutness_max = 4;
     const aboutnessUrl = `${currentUrl}${LOCAL_ABOUT_ENDPOINT}?q=${q}`;
     const aboutnessRes = await fetch(aboutnessUrl);
-    if (aboutnessRes.status !== 200) {
+    if (aboutnessRes.status != 200) {
       aboutness = { docs: [], count: 0 };
     } else {
       const aboutnessJson = await aboutnessRes.json();
@@ -215,9 +209,9 @@ Search.getInitialProps = async context => {
       .split(/(&|\+AND\+)/)
       .filter(facet => facet && facet !== "+AND+" && facet !== "&").length;
 
-    const facetsParam = `&facets=${theseFacets.join(",")}&${facetQueries}`;
-    const filtersParam = filters.map(x => `&filter=${x}`).join("");
-    const url = `${currentUrl}${API_ENDPOINT}?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}${facetsParam}${filtersParam}`;
+    const url = `${currentUrl}${API_ENDPOINT}?exact_field_match=true&q=${q}&page=${page}&page_size=${page_size}&sort_order=${sort_order}&sort_by=${sort_by}&facets=${theseFacets.join(
+      ","
+    )}&${facetQueries}`;
 
     const res = await fetch(url);
 
@@ -241,14 +235,6 @@ Search.getInitialProps = async context => {
     theseFacets.forEach(facet => {
       if (json.facets[facet]) newFacets[facet] = json.facets[facet];
     });
-
-    if (tags) {
-      newFacets["tags"] = {
-        "_type" : "terms",
-        "terms" : tags
-      };
-    }
-
     json.facets = newFacets;
 
     const maxResults = MAX_PAGE_SIZE * page_size;

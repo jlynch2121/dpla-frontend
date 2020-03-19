@@ -18,7 +18,7 @@ const NestedSidebarLinks = ({ activePage, topLevelItem, items }) => {
 
   return(
     <div>
-    {(topLevelItem !== undefined) &&
+      {(topLevelItem !== undefined) &&
       <SidebarLink
         route={topLevelItem.route}
         isActive={topLevelItem.isActive}
@@ -46,7 +46,7 @@ const NestedSidebarLinks = ({ activePage, topLevelItem, items }) => {
   component for the sidebar which also instantiates the NestedSidebarLinks class
   for building lists of links
 */
-const Sidebar = ({ className, items, activePage, render }) => {
+const Sidebar = ({ className, items, activePage }) => {
 
   if (items.length > 1) {
     // determine which page is active and flag it via the isActive key
@@ -71,7 +71,7 @@ const Sidebar = ({ className, items, activePage, render }) => {
     return (
       <div className={`${className} col-xs-12 col-md-4`}>
         <div className={css.sidebar}>
-          {render && <ul className={css.links}>
+          <ul className={css.links}>
             <li>
               <NestedSidebarLinks
                 activePage={activePage}
@@ -79,7 +79,7 @@ const Sidebar = ({ className, items, activePage, render }) => {
                 items={items}
               />
             </li>
-          </ul>}
+          </ul>
         </div>
       </div>
     );

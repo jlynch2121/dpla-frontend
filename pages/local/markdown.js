@@ -17,7 +17,6 @@ import { LOCALS } from "constants/local";
 
 import utils from "stylesheets/utils.scss";
 import contentCss from "stylesheets/content-pages.scss";
-import localMarkdown from "stylesheets/local_markdown.scss"
 
 class MarkdownPage extends React.Component {
   render() {
@@ -48,15 +47,14 @@ class MarkdownPage extends React.Component {
       ${contentCss.sidebarAndContentWrapper}`}
         >
           <div className="row">
-              <Sidebar
+            <Sidebar
               className={contentCss.sidebar}
               items={pages}
               activePage={router.asPath}
-              render={hasSidebar}
             />
-            <div className={bodyColumnsStyle}>
+            <div className="col-xs-12 col-md-7">
               <div id="main" role="main" className={contentCss.content}>
-                <ReactMarkdown escapeHtml={false} skipHtml={false} source={content} />
+                <ReactMarkdown escapeHtml={false} source={content} />
               </div>
             </div>
           </div>
@@ -69,8 +67,7 @@ class MarkdownPage extends React.Component {
 MarkdownPage.getInitialProps = async context => {
   const fullUrl = getCurrentUrl(context.req);
   const asPath = context.asPath;
-  const local = LOCALS[LOCAL_ID];
-  const routes = local["routes"];
+  const routes = LOCALS[LOCAL_ID]["routes"];
   const pageData = routes[asPath];
   const markdownUrl = `${fullUrl}/static/local/${LOCAL_ID}/${pageData.path}`;
   const markdownResponse = await fetch(markdownUrl);

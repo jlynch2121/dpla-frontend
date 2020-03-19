@@ -3,10 +3,10 @@ If you are a contributor or if you would like to learn more about the Illinois D
 
 ## Current IDHH Staff                                           
 
-### [Anne Craig](mailto:abcraig@uillinois.edu)
+### [Sandra Fritz](mailto:sfritz@ilsos.net)
 **IDHH Coordinator**  
-Senior Director  
-Consortium of Academic and Research Libraries in Illinois
+Digital Imaging Program Coordinator  
+Illinois Digital Archives and the Illinois State Library
 
 ### [Joshua Lynch](mailto:jlynch21@illinois.edu)
 **IDHH Metadata Manager and Webmaster**  

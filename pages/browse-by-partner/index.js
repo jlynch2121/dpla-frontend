@@ -34,8 +34,9 @@ PartnerBrowse.getInitialProps = async ({ query, req }) => {
   let linkParam = "";
 
   if (SITE_ENV === "local") {
-    const filtersParam = LOCALS[LOCAL_ID].filters.map(x => `&filter=${x}`).join("");
-    apiQuery = `${currentUrl}${API_ENDPOINT}?facets=dataProvider&facet_size=1000${filtersParam}`;
+    apiQuery = `${currentUrl}${API_ENDPOINT}?facets=dataProvider&provider.name=${LOCALS[
+      LOCAL_ID
+    ].provider}`;
     facetName = "dataProvider";
     linkParam = "provider";
   } else {

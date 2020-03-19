@@ -12,7 +12,6 @@ class NavigationLocal extends Component {
     var contactHtml;
     var arbitraryHtml = null;
     var blogHtml = null;
-    var surveyHtml = null;
 
     if (LOCALS[LOCAL_ID].routes) {
 
@@ -93,12 +92,10 @@ class NavigationLocal extends Component {
               </Link>
             </li>
           )}
-          {arbitraryHtml}
-          {contactHtml && contactHtml}
-          {LOCALS[LOCAL_ID].hasTerms && (
+          {LOCALS[LOCAL_ID].hasAbout && (
             <li>
-              <Link prefetch href="/terms">
-                <a>Terms and Conditions</a>
+              <Link prefetch href="/local/about" as="/about">
+                <a>About</a>
               </Link>
             </li>
           )}
@@ -109,10 +106,12 @@ class NavigationLocal extends Component {
               </Link>
             </li>
           )}
-          {LOCALS[LOCAL_ID].hasBrowseAll && (
+          {arbitraryHtml}
+          {contactHtml && contactHtml}
+          {LOCALS[LOCAL_ID].hasTerms && (
             <li>
-              <Link prefetch href="/search">
-                <a>Browse All</a>
+              <Link prefetch href="/terms">
+                <a>Terms and Conditions</a>
               </Link>
             </li>
           )}

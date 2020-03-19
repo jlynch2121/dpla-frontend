@@ -1,5 +1,6 @@
 {
   "extends": [
+    "react-app",
     "prettier"
   ],
   "plugins": [

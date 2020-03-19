@@ -66,7 +66,7 @@ class FiltersList extends React.Component {
     const { query } = this.props.route;
     const { onClickToggleFilters, showFilters } = this.props;
     return Object.keys(query).some(queryKey =>
-      possibleFacets.includes(mapURLPrettifiedFacetsToUgly[queryKey]) || queryKey === "tags"
+      possibleFacets.includes(mapURLPrettifiedFacetsToUgly[queryKey])
     )
       ? <div className={css.filtersListWrapper}>
           <div
@@ -84,7 +84,6 @@ class FiltersList extends React.Component {
                       mapURLPrettifiedFacetsToUgly[queryKey]
                     ) ||
                     queryKey === "q"
-                      || queryKey === "tags"
                   ) {
                     return (
                       value &&
