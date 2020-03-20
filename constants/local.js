@@ -22,7 +22,7 @@ const LOCALS = {
     logo: "logo.png",
     description: "A Gateway to Illinois State History",
     locationFacet: "%22Illinois%22",
-    subjectFacet: "",
+    subjectFacet: "*",
     externalLink: "http://finditillinois.org/idhh/",
     hasAbout: true,
     hasTerms: false,
