@@ -22,8 +22,8 @@ const LOCALS = {
     logo: "logo.png",
     description: "A Gateway to Illinois State History",
     locationFacet: "%22Illinois%22",
-    subjectFacet: "*Illinois*",
-    externalLink: "https://ildplacollections.wordpress.com/",
+    subjectFacet: "",
+    externalLink: "http://finditillinois.org/idhh/",
     hasAbout: true,
     hasTerms: false,
     hasContact: false,
@@ -86,6 +86,14 @@ const LOCALS = {
         isTopLevel: false,
         category: "About"
       },
+      "/about/outreach": {
+        parentDir: "/about",
+        path: "outreach-materials.md",
+        title: "Outreach Materials",
+        description: "",
+        isTopLevel: false,
+        category: "About"
+      },
       "/about/privacy": {
         parentDir: "/about",
         path: "privacy.md",
@@ -142,10 +150,42 @@ const LOCALS = {
         isTopLevel: false,
         category: "For Contributors"
       },
+      "/for-contributors/provider-metadata-guide": {
+        parentDir: "/for-contributors",
+        path: "provider-metadata-guide.md",
+        title: "Provider Metadata Guide",
+        description: "",
+        isTopLevel: false,
+        category: "For Contributors"
+      },
+      "/for-contributors/subject-metadata-guide": {
+        parentDir: "/for-contributors",
+        path: "subject-metadata-guide.md",
+        title: "Subject Metadata Guide",
+        description: "",
+        isTopLevel: false,
+        category: "For Contributors"
+      },
+      "/for-contributors/type-metadata-guide": {
+        parentDir: "/for-contributors",
+        path: "type-metadata-guide.md",
+        title: "Type Metadata Guide",
+        description: "",
+        isTopLevel: false,
+        category: "For Contributors"
+      },
       "/for-contributors/copyright": {
         parentDir: "/for-contributors",
         path: "copyright.md",
         title: "Copyright Resources",
+        description: "",
+        isTopLevel: false,
+        category: "For Contributors"
+      },
+      "/for-contributors/rights-statements-guide": {
+        parentDir: "/for-contributors",
+        path: "rights-statements-guide.md",
+        title: "Rights Statements Guide",
         description: "",
         isTopLevel: false,
         category: "For Contributors"
