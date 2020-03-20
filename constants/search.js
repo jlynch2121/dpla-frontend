@@ -2,19 +2,23 @@ import { joinIfArray } from "lib";
 
 export const possibleFacets = [
   "sourceResource.type",
+  "sourceResource.format",
   "sourceResource.subject.name",
+  "rights",
   "sourceResource.date.begin",
   "sourceResource.date.end",
   "sourceResource.spatial.name",
   "sourceResource.language.name",
   "admin.contributingInstitution",
-  "provider.name"
+  "provider.name",
+  "sourceResource.collection.title"
 ];
 
 // assumed to be a superset of possibleFacets,
 // only active in QA mode
 export const qaFacets = [
   "sourceResource.type",
+  "sourceResource.format",
   "sourceResource.subject.name",
   "sourceResource.date.begin",
   "sourceResource.date.end",
@@ -29,20 +33,23 @@ export const qaFacets = [
 
 export const mapFacetsToURLPrettified = {
   "sourceResource.type": "type",
+  "sourceResource.format": "format",
   "sourceResource.subject.name": "subject",
   "sourceResource.date.begin": "after",
   "sourceResource.date.end": "before",
   "sourceResource.spatial.name": "location",
   "sourceResource.language.name": "language",
-  "sourceResource.collection.name": "collection",
+  "sourceResource.collection.title": "collection",
   "admin.contributingInstitution": "provider",
   "provider.name": "partner",
   intermediateProvider: "intermediateProvider",
-  rights: "standardizedRightsStatement"
+  rights: "standardizedRightsStatement",
+  tags: "tags"
 };
 
 export const mapURLPrettifiedFacetsToUgly = {
   type: "sourceResource.type",
+  format: "sourceResource.format",
   subject: "sourceResource.subject.name",
   after: "sourceResource.date.begin",
   before: "sourceResource.date.end",
@@ -52,11 +59,13 @@ export const mapURLPrettifiedFacetsToUgly = {
   provider: "admin.contributingInstitution",
   partner: "provider.name",
   intermediateProvider: "intermediateProvider",
-  standardizedRightsStatement: "rights"
+  standardizedRightsStatement: "rights",
+  tags: "tags"
 };
 
 export const prettifiedFacetMap = {
   "sourceResource.type": "Type",
+  "sourceResource.format": "Format",
   "sourceResource.subject.name": "Subject",
   "sourceResource.spatial.name": "Location",
   "sourceResource.date.begin": "Date",

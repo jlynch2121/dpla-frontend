@@ -47,7 +47,7 @@ ContributorBrowse.getInitialProps = async ({ asPath, query, req }) => {
   let linkParam = "";
   let googleMap = null;
 
-  apiQuery = `${currentUrl}${API_ENDPOINT}?facets=dataProvider&provider.name=${LOCALS[
+  apiQuery = `${currentUrl}${API_ENDPOINT}?facets=dataProvider&facet_size=2000&provider.name=${LOCALS[
     LOCAL_ID
   ].provider}`;
   facetName = "dataProvider";
